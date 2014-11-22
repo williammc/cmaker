@@ -3,4 +3,4 @@
 call set_paths.bat
 
 echo "Opening associated visual studio, which generated this solution"
-"@VC_IDE_PATH@/devenv.exe" @Closure_PROJECT_NAME@.sln
+"@VC_IDE_PATH@/devenv.exe" @THE_PROJECT_NAME@.sln
