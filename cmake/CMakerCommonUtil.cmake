@@ -114,6 +114,7 @@ macro(cmaker_common_build_setting)
   endif()
 
   if(WIN32)
+    add_definitions(-DEIGEN_DONT_ALIGN_STATICALLY)  # this is unusual
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)
     add_definitions(-DWIN32_LEAN_AND_MEAN)  # speed up compiler by omitting some headers
     add_definitions(-DM_SQRT1_2=0.707106781186547524401)  # missing in MSVC2013
@@ -140,7 +141,7 @@ macro(cmaker_common_build_setting)
       if(CMAKE_SYSTEM_PROCESSOR MATCHES "^arm")
         add_definitions(-mfpu=neon -mfloat-abi=softfp -march=armv7-a)  # vectorization for ARM
       else()
-        add_definitions(-march=native)
+        #add_definitions(-march=native)
       endif()
     endif()
   endif(WIN32)
