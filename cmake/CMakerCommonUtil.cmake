@@ -120,19 +120,14 @@ macro(cmaker_common_build_setting)
     add_definitions(-DM_SQRT1_2=0.707106781186547524401)  # missing in MSVC2013
     add_definitions(-DM_PI=3.14159265358979323846) # missing in MSVC2013
     add_definitions("/MP")  # multiple processes compilation
-    add_definitions("/GR-")  # disable runtime type info
-    add_definitions("/fp:fast")  # fast floating point calc.
-    add_definitions("/GS-")  # disable security check
-    add_definitions("/W0")  # disable all warnings
-    #add_definitions("/GL")  # enable whole program optimization
-
+    
     add_definitions(-DNOMINMAX)  # resolve conflicts of std::min()/std::max() on Windows MSVC
     add_definitions(-D_USE_MATH_DEFINES)
     if(BUILD_SHARED_LIBS)  # disable warning on missing DLL interfaces
       add_definitions("/wd4251")
     endif()
 
-    set(CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE}  " /D_SECURE_SCL=0 -march=native")
+    set(CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE}  " /D_SECURE_SCL=0 -march=native /GR- /fp:fast  /GS- /W0")
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO ${CMAKE_CXX_FLAGS_RELWITHDEBINFO} " /D_SECURE_SCL=0 -march=native")
 
   else(WIN32)
