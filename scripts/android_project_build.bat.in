@@ -1,0 +1,24 @@
+REM run android project build steps
+@echo off
+
+echo "Setting up project folders (jni, res, etc)"
+
+md "./src"
+
+xcopy /s "@CMAKER_ROOT@"\ndk .
+
+echo "APK installing "
+
+set ANDROID_SDK_ROOT=C:/Program Files (x86)/Android/android-sdk
+
+call "%ANDROID_SDK_ROOT%/tools/android.bat" update project --name @ANDROID_PROJECT_NAME@ --path . -s --target 1
+
+call "%ANDROID_NDK_ROOT%/ndk-build"
+
+call "%ANT_HOME%/bin/ant" debug
+
+call "%ANT_HOME%/bin/ant" installd
+
+call "%ANDROID_SDK_ROOT%/platform-tools/adb" shell am start -a android.intenon.MAIN -n freeglut.test.gles1/android.app.NativeActivity
+
+:END

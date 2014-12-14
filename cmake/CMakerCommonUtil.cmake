@@ -109,8 +109,8 @@ macro(cmaker_common_build_setting)
     if(ENABLE_SSE)
       add_definitions(-DENABLE_SSE)   # SSE code
     endif()
-    set(CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE} "${SSE_FLAGS}")
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO ${CMAKE_CXX_FLAGS_RELWITHDEBINFO} "${SSE_FLAGS}")
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} ${SSE_FLAGS}")
+    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} ${SSE_FLAGS}")
   endif()
 
   if(WIN32)
@@ -127,8 +127,8 @@ macro(cmaker_common_build_setting)
       add_definitions("/wd4251")
     endif()
 
-    set(CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE}  " /D_SECURE_SCL=0 -march=native /GR- /fp:fast  /GS- /W0")
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO ${CMAKE_CXX_FLAGS_RELWITHDEBINFO} " /D_SECURE_SCL=0 -march=native")
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /D_SECURE_SCL=0 /GR- /fp:fast  /GS- /W0 ")
+    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} /D_SECURE_SCL=0 ")
 
   else(WIN32)
     if(NOT CMAKE_BUILD_TYPE STREQUAL Debug)
