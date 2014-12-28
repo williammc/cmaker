@@ -127,6 +127,8 @@ macro(cmaker_common_build_setting)
       add_definitions("/wd4251")
     endif()
 
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Qpar " )  # parallel code generation
+
     #set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /D_SECURE_SCL=0 /GR- /fp:fast  /GS- /W0 ")
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /D_SECURE_SCL=0 /fp:fast  /GS- /W0 ")
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} /D_SECURE_SCL=0 ")
