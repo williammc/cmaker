@@ -62,6 +62,7 @@ if(NOT CMakerCommonSettings_CALLED)
         get_filename_component(VC_IDE_PATH $ENV{VS120COMNTOOLS}/../IDE ABSOLUTE)
       endif()
     endif()
+    list(APPEND THE_DEPEDENCIES_BINARY_PATHS "${VC_IDE_PATH}/../../VC" "${VC_IDE_PATH}/../../VC/bin" )
     configure_file("${CMAKER_ROOT}/scripts/set_paths.bat.in" 
                    "${CMAKE_CURRENT_BINARY_DIR}/set_paths.bat")
     configure_file("${CMAKER_ROOT}/scripts/set_paths.bat.in" 
