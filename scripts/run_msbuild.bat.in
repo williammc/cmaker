@@ -1,0 +1,1 @@
+"@VC_PATH@/vcvarsall.bat" @WIN32_ARCH@ & msbuild /verbosity:d %*

@@ -1,4 +1,4 @@
-set(CMakerCommonSettings_CALLED FALSE)
+set(CMakerCommonSettings_CALLED FALSE) # make sure this file is called once
 
 if(NOT CMakerCommonSettings_CALLED)
   ## General settings ==========================================================
@@ -43,9 +43,9 @@ if(NOT CMakerCommonSettings_CALLED)
   if(WIN32)
     if(MSVC)
       if(CMAKE_CL_64)
-        set(StructuralModeling_ARCH x64)
+        set(WIN32_ARCH x64)
       else()
-        set(StructuralModeling_ARCH x86)
+        set(WIN32_ARCH x86)
       endif()
       if(MSVC_VERSION EQUAL 1400)
         set(StructuralModeling_RUNTIME vc8)
@@ -61,6 +61,7 @@ if(NOT CMakerCommonSettings_CALLED)
         set(StructuralModeling_RUNTIME vc12)
         get_filename_component(VC_IDE_PATH $ENV{VS120COMNTOOLS}/../IDE ABSOLUTE)
       endif()
+      get_filename_component(VC_PATH "${VC_IDE_PATH}/../../VC" ABSOLUTE)
     endif()
     list(APPEND THE_DEPEDENCIES_BINARY_PATHS "${VC_IDE_PATH}/../../VC" "${VC_IDE_PATH}/../../VC/bin" )
     configure_file("${CMAKER_ROOT}/scripts/set_paths.bat.in" 

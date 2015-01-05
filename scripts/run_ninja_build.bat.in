@@ -1,0 +1,1 @@
+"@VC_PATH@/vcvarsall.bat" @WIN32_ARCH@ & ninja -j 4 -f build.ninja -v %*
