@@ -4,4 +4,4 @@ setlocal
 
 call set_paths.bat
 echo "Opening associated visual studio, which generated this solution"
-"@VC_IDE_PATH@/devenv.exe" /debugexe %*
+start "" "@VC_IDE_PATH@/devenv.exe" /debugexe %*

@@ -12,4 +12,4 @@ FOR %%X IN (%SUB_DIRS%) DO  SET _NT_SOURCE_PATH=%_NT_SOURCE_PATH%;"%ROOT_DIR%/"%
 
 CALL set_paths.bat 
 
-"C:\Program Files (x86)\Windows Kits\8.1\Debuggers\x86\windbg" %*
+start "" "C:\Program Files (x86)\Windows Kits\8.1\Debuggers\x86\windbg" %*
