@@ -175,7 +175,7 @@ macro(cmaker_common_build_setting)
     #add_definitions(/D_HAS_EXCEPTIONS=0)  # disable exception handling code
     #add_definitions(/D"__uncaught_exception()=true")
     #set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /NOENTRY ")  # this causes IsValidPtr errors
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Qpar " )  # parallel code generation
+    #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Qpar " )  # parallel code generation
     #set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /D_SECURE_SCL=0 /GR- /fp:fast  /GS- /W0 ")
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /D_SECURE_SCL=0 /fp:fast  /GS- /W0 ")
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} /D_SECURE_SCL=0 ")
